@@ -40,6 +40,11 @@ document.addEventListener('fragment:loaded', function (e) {
 });
 ```
 
+## Demo
+
+To see Fragment in action, visite the demo:
+https://fragment-pi.vercel.app/
+
 ## Press the :star: button
 
 Don't forget to press the :star: button to let me know I should continue improving this project.
