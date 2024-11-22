@@ -4,7 +4,9 @@
 
 ## but why...? we already have HTMX!
 
-Although I love and use HTMX, it has one big downside: you need a SERVER to generate the HTMX fragment that gets replaced. Which makes it less suitable for static sites or content loaded via a CDN. Another downside of HTMX is that it does not replace
+Although I love and use HTMX, it has one big downside: you need a SERVER to generate the HTMX fragment that gets replaced. Which makes it less suitable for static sites or content loaded via a CDN.
+
+Another 'downside' of HTMX is that links lose their `href` attribute in favour of `hx-get`. This is by design, but it makes your html less semantic (with possible SEO consequences). Fragment-links degrade gracefuly to their default behavior, even when javascript is disabled.
 
 ## Features
 
