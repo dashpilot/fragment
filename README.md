@@ -4,7 +4,7 @@
 
 ## but why...? we already have HTMX!
 
-Although I love and use HTMX, it has one big downside: you need a SERVER to generate the HTMX fragment that gets replaced. Which makes it unsuitable for static sites or content loaded via a CDN.
+Although I love and use HTMX, it has one big downside: you need a SERVER to generate the HTMX fragment that gets replaced. Which makes it less suitable for static sites or content loaded via a CDN. Another downside of HTMX is that it does not replace
 
 ## Features
 
@@ -27,6 +27,10 @@ Ensure your links have the `data-fragment` attribute and point to the desired UR
     <!-- Content will be dynamically loaded here -->
 </div>
 ```
+
+### Active page
+
+Fragment automatically gives the active link a class of `.active-fragment`, so you can style it however you like.
 
 ### Listening for the Custom Event
 
