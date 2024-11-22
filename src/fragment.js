@@ -12,33 +12,38 @@ function fragment() {
             });
             link.classList.add('active-fragment');
 
-            fetch(url)
-                .then((response) => response.text())
-                .then((html) => {
-                    // Create a temporary DOM element to parse the fetched HTML
-                    var tempDiv = document.createElement('div');
-                    tempDiv.innerHTML = html;
-
-                    // Extract the content of the specified fragment ID
-                    var newContent = tempDiv.querySelector(`#${fragmentId}`).innerHTML;
-
-                    // Update the specified fragment ID on the current page
-                    document.querySelector(`#${fragmentId}`).innerHTML = newContent;
-
-                    // Extract and update the document title
-                    var newTitle = tempDiv.querySelector('title').innerText;
-                    document.title = newTitle;
-
-                    // Push the new URL to the browser's history
-                    history.pushState(null, '', url);
-
-                    // Emit a custom event after content is loaded and URL is updated
-                    const event = new CustomEvent('fragment:loaded', { detail: { url: url, fragmentId: fragmentId } });
-                    document.dispatchEvent(event);
-                })
-                .catch((error) => console.error('Error fetching the fragment:', error));
+            runFragment(url, fragmentId);
         });
     });
+}
+
+// Run fragment manually
+function runFragment(url, fragmentId) {
+    fetch(url)
+        .then((response) => response.text())
+        .then((html) => {
+            // Create a temporary DOM element to parse the fetched HTML
+            var tempDiv = document.createElement('div');
+            tempDiv.innerHTML = html;
+
+            // Extract the content of the specified fragment ID
+            var newContent = tempDiv.querySelector(`#${fragmentId}`).innerHTML;
+
+            // Update the specified fragment ID on the current page
+            document.querySelector(`#${fragmentId}`).innerHTML = newContent;
+
+            // Extract and update the document title
+            var newTitle = tempDiv.querySelector('title').innerText;
+            document.title = newTitle;
+
+            // Push the new URL to the browser's history
+            history.pushState(null, '', url);
+
+            // Emit a custom event after content is loaded and URL is updated
+            const event = new CustomEvent('fragment:loaded', { detail: { url: url, fragmentId: fragmentId } });
+            document.dispatchEvent(event);
+        })
+        .catch((error) => console.error('Error fetching the fragment:', error));
 }
 
 // Call the function to set up the link interception
