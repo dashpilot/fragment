@@ -1,6 +1,10 @@
-# Fragment Function
+# Fragment, SPA-like navigation without the need for a server.
 
-The `fragment` function is a JavaScript utility designed to enhance web pages with Single Page Application (SPA)-like behavior. It intercepts link clicks on elements with the `data-fragment` attribute, fetches the content from the specified URL, and updates a specific part of the page without reloading. Additionally, it updates the browser's history and document title, and emits a custom event for further integration.
+`Fragment` is a JavaScript utility designed to enhance web pages with Single Page Application (SPA)-like behavior. It intercepts link clicks on elements with the `data-fragment` attribute, fetches the content from the specified URL, and updates a specific part of the page without reloading AND without the need to render different versions of a page. Fragment automatically extracts just the part that needs to be replaced.
+
+## but why..., we already have HTMX!
+
+Although I love and use HTMX, it has one big downside: you need a SERVER to generate the HTMX fragment that gets replaced. Which makes it unsuitable for static sites or content loaded via a CDN.
 
 ## Features
 
