@@ -1,8 +1,8 @@
-# Fragment, SPA-like navigation without the need for a SPA or a server.
+# Fragment, SPA-like navigation without the need for a SPA ...or a server.
 
 `Fragment` is a JavaScript utility designed to enhance web pages with Single Page Application (SPA)-like behavior. It intercepts link clicks on elements with the `data-fragment` attribute, fetches the content from the specified URL, and updates a specific part of the page without reloading AND without the need to render different versions of a page. Fragment automatically extracts just the part that needs to be replaced.
 
-## but why..., we already have HTMX!
+## but why...? we already have HTMX!
 
 Although I love and use HTMX, it has one big downside: you need a SERVER to generate the HTMX fragment that gets replaced. Which makes it unsuitable for static sites or content loaded via a CDN.
 
@@ -18,7 +18,7 @@ Although I love and use HTMX, it has one big downside: you need a SERVER to gene
 
 ### HTML Structure
 
-Ensure your links have the `data-fragment` attribute and point to the desired URL:
+Ensure your links have the `data-fragment` attribute and point to the desired URL. The value of `data-fragment` is the id of the element that will be replaced.
 
 ```html
 <a href="page1.html" data-fragment="main">Page 1</a>
@@ -40,6 +40,6 @@ document.addEventListener('fragment:loaded', function (e) {
 });
 ```
 
-## Conclusion
+## Press the :star: button
 
-The `fragment` function provides a simple way to implement SPA-like behavior on your website, enhancing user experience by dynamically loading content and managing browser history. Customize and extend it to fit your specific needs.
+Don't forget to press the :star: button to let me know I should continue improving this project.
